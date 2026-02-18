@@ -36,12 +36,12 @@ def run_tests():
     except BookAlreadyLoaned:
         print("excepción libro ya prestado")
 
-    # 5️⃣ devolución correcta
+    # devolución correcta
     service.return_book(book.id)
     assert book.loaned_to is None
     print("devolución correcta")
 
-    # 6️⃣ límite de préstamos
+    # límite de préstamos
     service = LibraryService(repo, max_loans_per_user=1)
 
     book1 = service.add_book("A", "Autor A")
